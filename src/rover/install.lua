@@ -62,7 +62,7 @@ local function install(name, version, deps_mode, force)
         repos.delete_version(name, version, deps_mode)
     end
 
-    local opts = build.opts({
+    local opts = {
       need_to_fetch = true,
       minimal_mode = false,
       deps_mode = deps_mode,
@@ -74,7 +74,7 @@ local function install(name, version, deps_mode, force)
       pin = false,
       rebuild = force,
       no_install = false,
-    })
+    }
 
     if not repos.is_installed(name, version) then
         local spec, err = assert(search.find_src_or_rockspec(name, nil, version))
