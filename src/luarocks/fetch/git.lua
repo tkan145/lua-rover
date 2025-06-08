@@ -114,7 +114,6 @@ end
 -- the fetched source tarball and the temporary directory created to
 -- store it; or nil and an error message.
 function git.get_sources(rockspec, extract, dest_dir, depth)
-  assert(rockspec:type() == "rockspec")
   assert(type(dest_dir) == "string" or not dest_dir)
 
   local git_cmd = rockspec.variables.GIT
